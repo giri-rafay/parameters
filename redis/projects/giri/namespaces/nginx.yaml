@@ -1,0 +1,27 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: nginx
+  project: giri
+spec:
+  drift:
+    enabled: false
+  limitRange:
+    container: {}
+    pod: {}
+  networkPolicyParams:
+    networkPolicyEnabled: true
+    policies:
+    - name: pol1
+      version: v11
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: giri-stage-cluster
+    - key: rafay.dev/clusterName
+      value: giri-cdn-cluster
+    - key: rafay.dev/clusterName
+      value: giri-cm-eks
+    - key: rafay.dev/clusterName
+      value: giri-stage-regression
+  resourceQuotas: {}

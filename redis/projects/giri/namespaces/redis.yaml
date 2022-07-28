@@ -1,0 +1,18 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: redis
+  project: giri
+spec:
+  drift:
+    enabled: false
+  limitRange:
+    container: {}
+    pod: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: giri-stage-cluster
+    - key: rafay.dev/clusterName
+      value: giri-stage-regression
+  resourceQuotas: {}
