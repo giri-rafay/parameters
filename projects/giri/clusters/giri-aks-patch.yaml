@@ -1,0 +1,90 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Cluster
+metadata:
+  name: giri-aks-patch
+  project: giri
+spec:
+  blueprintConfig:
+    name: minimal
+  cloudCredentials: giri-aks
+  config:
+    kind: aksClusterConfig
+    metadata:
+      name: giri-aks-patch
+    spec:
+      managedCluster:
+        apiVersion: "2022-07-01"
+        identity:
+          type: SystemAssigned
+        location: centralindia
+        properties:
+          apiServerAccessProfile: {}
+          dnsPrefix: giri-aks-patch-dns
+          kubernetesVersion: 1.23.12
+          networkProfile:
+            loadBalancerSku: standard
+            networkPlugin: kubenet
+            networkPolicy: calico
+        sku:
+          name: Basic
+          tier: Free
+        type: Microsoft.ContainerService/managedClusters
+      nodePools:
+      - apiVersion: "2022-07-01"
+        location: centralindia
+        name: primary
+        properties:
+          count: 3
+          enableAutoScaling: true
+          maxCount: 3
+          maxPods: 40
+          minCount: 3
+          mode: System
+          orchestratorVersion: 1.23.12
+          osType: Linux
+          type: VirtualMachineScaleSets
+          vmSize: Standard_B2ms
+        type: Microsoft.ContainerService/managedClusters/agentPools
+      resourceGroupName: giri
+  proxyConfig: {}
+  sharing:
+    enabled: true
+    projects:
+    - name: '*'
+  type: aks
+status:
+  aks:
+    nodepools:
+    - createdAt: "2023-01-31T06:07:50Z"
+      id: pkzoog2
+      kubeVersion: 1.23.12
+      name: primary
+      provisionStatus: NODEGROUP_PROVISION_COMPLETE
+  blueprint:
+    name: minimal
+  conditions:
+  - reason: registered
+    status: "True"
+    type: ClusterRegisterSucceeded
+  - reason: checked in
+    status: "True"
+    type: ClusterCheckInSucceeded
+  - reason: all nodes synced
+    status: "True"
+    type: ClusterNodeSyncSucceeded
+  - reason: all namespaces synced
+    status: "True"
+    type: ClusterNamespaceSyncSucceeded
+  - reason: all tasks/workloads synced
+    status: "True"
+    type: ClusterBlueprintSyncSucceeded
+  - reason: blueprint synced
+    status: "True"
+    type: ClusterReady
+  createdAt: "2023-01-31T06:07:20Z"
+  displayName: giri-aks-patch
+  extra:
+    vaultIntegration: {}
+  id: mx8x472
+  name: giri-aks-patch
+  provisionStatus: CLUSTER_PROVISION_COMPLETE
