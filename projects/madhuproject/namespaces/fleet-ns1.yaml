@@ -1,0 +1,22 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: fleet-ns1
+  project: madhuproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: madhueks-stageedge
+    - key: rafay.dev/clusterName
+      value: madhustagemks1
+    - key: rafay.dev/clusterName
+      value: madhustagemks1-1
+    - key: rafay.dev/clusterName
+      value: madhuaks1
+    - key: rafay.dev/clusterName
+      value: madhueksstage1-14x
+  resourceQuotas: {}

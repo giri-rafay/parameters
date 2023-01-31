@@ -1,0 +1,14 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: madhunewns1
+  project: madhuproject
+spec:
+  limitRange: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: madhu-mks-arm1
+    - key: rafay.dev/clusterName
+      value: madhumr
+  resourceQuotas: {}

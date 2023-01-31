@@ -1,0 +1,20 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: cilium-test
+  project: giri
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  namespaceMeshPolicyParams: {}
+  networkPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: giri-prv-import-microk8s
+    - key: rafay.dev/clusterName
+      value: giri-imp-np-aks
+    - key: rafay.dev/clusterName
+      value: giri-aks-demo
+  resourceQuotas: {}

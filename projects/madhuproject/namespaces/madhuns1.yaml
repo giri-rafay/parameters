@@ -1,0 +1,16 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: madhuns1
+  project: madhuproject
+spec:
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: madhuaws-nonha-ubuntu1
+    - key: rafay.dev/clusterName
+      value: madhupostupgrade-oci
+    - key: rafay.dev/clusterName
+      value: madhu-ubuntu-reuser1
+    - key: rafay.dev/clusterName
+      value: madhu-arm-latest

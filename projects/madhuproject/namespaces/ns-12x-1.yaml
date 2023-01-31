@@ -1,0 +1,17 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: ns-12x-1
+  project: madhuproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  namespaceMeshPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: madhuaks-stage-112x
+    - key: rafay.dev/clusterName
+      value: madhueks-stage-112x
+  resourceQuotas: {}

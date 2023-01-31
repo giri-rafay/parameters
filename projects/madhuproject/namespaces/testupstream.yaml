@@ -1,0 +1,19 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: testupstream
+  project: madhuproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  networkPolicyParams:
+    networkPolicyEnabled: true
+    policies:
+    - name: np-ns1
+      version: v1
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: madhu-upstream
+  resourceQuotas: {}

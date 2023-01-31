@@ -1,0 +1,16 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: madhupreupgrade1
+  project: madhuproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: madhu-arm-latestch
+    - key: rafay.dev/clusterName
+      value: madhu-automks1
+  resourceQuotas: {}

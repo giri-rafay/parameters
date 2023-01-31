@@ -1,0 +1,10 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: madhuworkload1
+  project: madhuproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  resourceQuotas: {}

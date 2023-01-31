@@ -1,0 +1,20 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: team2-apac
+  project: madhuproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: madhuaks-stage114x-1
+    - key: rafay.dev/clusterName
+      value: madhueks-stage114x-2
+    - key: rafay.dev/clusterName
+      value: madhumks-stage114x-1
+    - key: rafay.dev/clusterName
+      value: madhugcp-import
+  resourceQuotas: {}

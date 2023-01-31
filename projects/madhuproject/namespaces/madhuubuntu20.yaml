@@ -1,0 +1,18 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: madhuubuntu20
+  project: madhuproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: madhueksalert2
+    - key: rafay.dev/clusterName
+      value: madhumks-secret1
+    - key: rafay.dev/clusterName
+      value: testmadhu-agent
+  resourceQuotas: {}

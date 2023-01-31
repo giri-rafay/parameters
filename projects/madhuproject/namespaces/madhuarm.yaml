@@ -1,0 +1,14 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: madhuarm
+  project: madhuproject
+spec:
+  limitRange: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: madhuubuntu20-oci
+    - key: rafay.dev/clusterName
+      value: madhhu-arm-ipv6
+  resourceQuotas: {}

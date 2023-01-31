@@ -1,0 +1,22 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: tetsnamespace1
+  project: madhuproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: madhuautoec2-stage1
+    - key: rafay.dev/clusterName
+      value: madhueks-stage1
+    - key: rafay.dev/clusterName
+      value: madhuaks-stage11
+    - key: rafay.dev/clusterName
+      value: madhumks-stage115x
+    - key: rafay.dev/clusterName
+      value: hardik-mks-upgrade
+  resourceQuotas: {}

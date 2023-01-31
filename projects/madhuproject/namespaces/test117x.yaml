@@ -1,0 +1,19 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: test117x
+  project: madhuproject
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  namespaceMeshPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: madhueks-stag117x
+    - key: rafay.dev/clusterName
+      value: madhueks-stage1
+    - key: rafay.dev/clusterName
+      value: madhuaks-stage1-cost
+  resourceQuotas: {}
