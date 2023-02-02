@@ -3,4 +3,8 @@ kind: ClusterNetworkPolicy
 metadata:
   name: system-policy1
   project: giri-cost
-spec: {}
+spec:
+  rules:
+  - name: cluster-rule1
+    version: ccnp-rule1
+  version: system-policy-version1
