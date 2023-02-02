@@ -3,4 +3,11 @@ kind: NamespaceNetworkPolicyRule
 metadata:
   name: system-ns-rule1
   project: giri-cost
-spec: {}
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/system-ns-rule1/xwing-block-rule.yaml
+    options: {}
+    type: Yaml
+  version: system-ns-rule-version1
