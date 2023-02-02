@@ -4,4 +4,25 @@ metadata:
   name: test-git
   project: giri-cost
 spec:
+  base:
+    name: default
+    version: 1.22.0
+  defaultAddons:
+    enableIngress: true
+    enableMonitoring: true
+  networkPolicy:
+    enabled: true
+    policies:
+    - name: git-policy1
+      version: git-policy-version1
+    - name: system-policy1
+      version: system-policy-version1
+    - name: git-policy1
+      version: git-policy-version1
+    - name: git-policy1
+      version: git-policy-version1
+    profile:
+      name: giri-cost-np-profile
+      version: v1
   type: custom
+  version: v111
