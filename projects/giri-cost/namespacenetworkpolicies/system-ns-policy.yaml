@@ -3,4 +3,8 @@ kind: NamespaceNetworkPolicy
 metadata:
   name: system-ns-policy
   project: giri-cost
-spec: {}
+spec:
+  rules:
+  - name: system-ns-rule1
+    version: system-ns-rule-version1
+  version: system-policy-v1
