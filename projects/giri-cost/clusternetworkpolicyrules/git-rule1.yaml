@@ -1,0 +1,13 @@
+apiVersion: security.k8smgmt.io/v3
+kind: ClusterNetworkPolicyRule
+metadata:
+  name: git-rule1
+  project: giri-cost
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/cluster-rule1/cluster-wide.yaml
+    options: {}
+    type: Yaml
+  version: ccnp-rule1
