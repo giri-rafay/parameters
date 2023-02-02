@@ -3,4 +3,11 @@ kind: ClusterNetworkPolicyRule
 metadata:
   name: cluster-rule1
   project: giri-cost
-spec: {}
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/cluster-rule1/cluster-wide.yaml
+    options: {}
+    type: Yaml
+  version: ccnp-rule1
