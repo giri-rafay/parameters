@@ -1,0 +1,7 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Blueprint
+metadata:
+  name: madhu-bp
+  project: giri-cost
+spec:
+  type: custom

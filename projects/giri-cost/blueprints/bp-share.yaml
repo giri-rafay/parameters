@@ -1,0 +1,22 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Blueprint
+metadata:
+  name: bp-share
+  project: giri-cost
+spec:
+  base:
+    name: default
+    version: 1.19.0
+  costProfile:
+    enabled: true
+    name: giri-aws-profile
+    version: version1
+  defaultAddons:
+    enableIngress: true
+    enableMonitoring: true
+  sharing:
+    enabled: true
+    projects:
+    - name: giri
+  type: custom
+  version: share-version1
