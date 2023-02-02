@@ -3,4 +3,7 @@ kind: NetworkPolicyProfile
 metadata:
   name: giri-cost-np-profile
   project: giri-cost
-spec: {}
+spec:
+  installationParams:
+    policyEnforcementMode: default
+  version: v1
