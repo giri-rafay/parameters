@@ -1,0 +1,10 @@
+apiVersion: security.k8smgmt.io/v3
+kind: NamespaceNetworkPolicy
+metadata:
+  name: git-ns-policy
+  project: giri-cost
+spec:
+  rules:
+  - name: system-ns-rule1
+    version: system-ns-rule-version1
+  version: git-policy-v1
