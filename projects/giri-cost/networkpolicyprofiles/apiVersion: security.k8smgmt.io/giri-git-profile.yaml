@@ -1,0 +1,9 @@
+apiVersion: security.k8smgmt.io/v3
+kind: NetworkPolicyProfile
+metadata:
+  name: giri-git-profile
+  project: giri-cost
+spec:
+  installationParams:
+    policyEnforcementMode: always
+  version: giri-git-version
