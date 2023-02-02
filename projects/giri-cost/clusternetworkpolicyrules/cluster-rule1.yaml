@@ -1,0 +1,6 @@
+apiVersion: security.k8smgmt.io/v3
+kind: ClusterNetworkPolicyRule
+metadata:
+  name: cluster-rule1
+  project: giri-cost
+spec: {}
