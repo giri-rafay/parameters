@@ -1,0 +1,6 @@
+apiVersion: security.k8smgmt.io/v3
+kind: NamespaceNetworkPolicyRule
+metadata:
+  name: system-ns-rule1
+  project: giri-cost
+spec: {}
