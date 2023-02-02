@@ -5,5 +5,5 @@ metadata:
   project: giri-cost
 spec:
   installationParams:
-    policyEnforcementMode: default
-  version: v1
+    policyEnforcementMode: always
+  version: version2222
