@@ -1,7 +1,30 @@
 apiVersion: infra.k8smgmt.io/v3
 kind: Blueprint
 metadata:
+  description: bp-version1
   name: giri-git-bp
   project: giri-cost
 spec:
+  base:
+    name: default
+    version: 1.22.0
+  customAddons:
+  - name: ram-cm-pod-addon
+    version: v1-pod-cert
+  - name: ram-cm-pod-addon-1
+    version: v2-pod
+  defaultAddons:
+    enableIngress: true
+    enableMonitoring: true
+  networkPolicy:
+    enabled: true
+    policies:
+    - name: git-policy1
+      version: git-policy-version1
+    - name: system-policy1
+      version: system-policy-version1
+    profile:
+      name: giri-cost-np-profile
+      version: v1
   type: custom
+  version: giri-git-bp-version1
