@@ -1,0 +1,10 @@
+apiVersion: security.k8smgmt.io/v3
+kind: ClusterNetworkPolicy
+metadata:
+  name: git-policy1
+  project: giri-cost
+spec:
+  rules:
+  - name: cluster-rule1
+    version: ccnp-rule1
+  version: git-policy-version1
