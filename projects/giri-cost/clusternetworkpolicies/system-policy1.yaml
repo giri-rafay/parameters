@@ -1,0 +1,6 @@
+apiVersion: security.k8smgmt.io/v3
+kind: ClusterNetworkPolicy
+metadata:
+  name: system-policy1
+  project: giri-cost
+spec: {}
