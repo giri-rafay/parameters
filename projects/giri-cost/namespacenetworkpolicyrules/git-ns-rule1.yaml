@@ -1,0 +1,13 @@
+apiVersion: security.k8smgmt.io/v3
+kind: NamespaceNetworkPolicyRule
+metadata:
+  name: git-ns-rule1
+  project: giri-cost
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/git-cilium-test-xwing-block.yaml
+    options: {}
+    type: Yaml
+  version: git-ns-rule-version1
