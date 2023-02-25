@@ -4,3 +4,4 @@ metadata:
   name: repo
   labels:
     name: repo
+    app: giri123
