@@ -5,9 +5,13 @@ metadata:
   project: madhuproject
 spec:
   blueprintConfig:
-    name: minimal
+    name: madhuaddon-calico1
+    version: v123x-latest
   cloudCredentials: madhuaws117x
   config:
+    addons:
+    - name: aws-ebs-csi-driver
+      version: latest
     metadata:
       name: madhueks-stage-stability
       region: us-west-2
@@ -43,7 +47,8 @@ spec:
   type: aws-eks
 status:
   blueprint:
-    name: minimal
+    name: madhuaddon-calico1
+    version: v123x-latest
   conditions:
   - reason: registered
     status: "True"
@@ -51,15 +56,15 @@ status:
   - reason: checked in
     status: "True"
     type: ClusterCheckInSucceeded
-  - reason: pending
-    status: "False"
+  - reason: all nodes synced
+    status: "True"
     type: ClusterNodeSyncSucceeded
-  - reason: all namespaces synced
-    status: "True"
-    type: ClusterNamespaceSyncSucceeded
-  - reason: all tasks/workloads synced
-    status: "True"
+  - reason: blueprint placement created
+    status: "False"
     type: ClusterBlueprintSyncSucceeded
+  - reason: blueprint handled
+    status: "False"
+    type: ClusterNamespaceSyncSucceeded
   - reason: blueprint synced
     status: "True"
     type: ClusterReady
@@ -69,4 +74,4 @@ status:
     vaultIntegration: {}
   id: kyoqzdm
   name: madhueks-stage-stability
-  provisionStatus: BOOTSTRAP_DELETION_INPROGRESS
+  provisionStatus: CLUSTER_PROVISION_COMPLETE
