@@ -45,23 +45,23 @@ status:
   blueprint:
     name: minimal
   conditions:
-  - reason: pending
-    status: "False"
+  - reason: registered
+    status: "True"
     type: ClusterRegisterSucceeded
-  - reason: pending
-    status: "False"
+  - reason: checked in
+    status: "True"
     type: ClusterCheckInSucceeded
   - reason: pending
     status: "False"
     type: ClusterNodeSyncSucceeded
-  - reason: pending
-    status: "False"
-    type: ClusterBlueprintSyncSucceeded
-  - reason: pending
-    status: "False"
+  - reason: all namespaces synced
+    status: "True"
     type: ClusterNamespaceSyncSucceeded
-  - reason: pending
-    status: "False"
+  - reason: all tasks/workloads synced
+    status: "True"
+    type: ClusterBlueprintSyncSucceeded
+  - reason: blueprint synced
+    status: "True"
     type: ClusterReady
   createdAt: "2023-03-03T12:08:23Z"
   displayName: madhueks-stage-stability
@@ -69,4 +69,4 @@ status:
     vaultIntegration: {}
   id: kyoqzdm
   name: madhueks-stage-stability
-  provisionStatus: INFRA_CREATION_INPROGRESS
+  provisionStatus: BOOTSTRAP_DELETION_INPROGRESS
