@@ -1,17 +1,20 @@
 apiVersion: infra.k8smgmt.io/v3
 kind: Cluster
 metadata:
-  name: giri-patch-eks
-  project: giri
+  name: madhueks-stage-stability
+  project: madhuproject
 spec:
   blueprintConfig:
     name: minimal
-  cloudCredentials: giri-aws
+  cloudCredentials: madhuaws117x
   config:
     metadata:
-      name: giri-patch-eks
+      name: madhueks-stage-stability
       region: us-west-2
-      version: "1.24"
+      tags:
+        email: madhu@rafay.co
+        env: qa
+      version: "1.23"
     network:
       cni:
         name: aws-cni
@@ -25,14 +28,14 @@ spec:
       instanceType: t3.xlarge
       maxSize: 2
       minSize: 2
-      name: ng-5f4cd045
-      version: "1.24"
+      name: ng1
+      version: "1.23"
       volumeSize: 80
       volumeType: gp3
     vpc:
       cidr: 192.168.0.0/16
       clusterEndpoints:
-        privateAccess: false
+        privateAccess: true
         publicAccess: true
       nat:
         gateway: Single
@@ -42,28 +45,28 @@ status:
   blueprint:
     name: minimal
   conditions:
-  - reason: registered
-    status: "True"
+  - reason: pending
+    status: "False"
     type: ClusterRegisterSucceeded
-  - reason: checked in
-    status: "True"
+  - reason: pending
+    status: "False"
     type: ClusterCheckInSucceeded
   - reason: pending
     status: "False"
     type: ClusterNodeSyncSucceeded
-  - reason: all namespaces synced
-    status: "True"
-    type: ClusterNamespaceSyncSucceeded
-  - reason: all tasks/workloads synced
-    status: "True"
+  - reason: pending
+    status: "False"
     type: ClusterBlueprintSyncSucceeded
-  - reason: blueprint synced
-    status: "True"
+  - reason: pending
+    status: "False"
+    type: ClusterNamespaceSyncSucceeded
+  - reason: pending
+    status: "False"
     type: ClusterReady
-  createdAt: "2023-01-31T08:40:33Z"
-  displayName: giri-patch-eks
+  createdAt: "2023-03-03T12:08:23Z"
+  displayName: madhueks-stage-stability
   extra:
     vaultIntegration: {}
-  id: knl1d02
-  name: giri-patch-eks
-  provisionStatus: BOOTSTRAP_DELETION_INPROGRESS
+  id: kyoqzdm
+  name: madhueks-stage-stability
+  provisionStatus: INFRA_CREATION_INPROGRESS
