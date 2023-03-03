@@ -6,7 +6,7 @@ metadata:
 spec:
   blueprintConfig:
     name: madhuaddon-calico1
-    version: v123x-latest
+    version: v1123x-latest2
   cloudCredentials: madhuaws117x
   config:
     addons:
@@ -48,7 +48,7 @@ spec:
 status:
   blueprint:
     name: madhuaddon-calico1
-    version: v123x-latest
+    version: v1123x-latest2
   conditions:
   - reason: registered
     status: "True"
@@ -59,7 +59,7 @@ status:
   - reason: all nodes synced
     status: "True"
     type: ClusterNodeSyncSucceeded
-  - reason: blueprint placement created
+  - reason: blueprint placement processed
     status: "False"
     type: ClusterBlueprintSyncSucceeded
   - reason: blueprint handled
