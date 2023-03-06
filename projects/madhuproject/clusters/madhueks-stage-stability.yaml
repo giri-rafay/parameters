@@ -6,7 +6,7 @@ metadata:
 spec:
   blueprintConfig:
     name: madhunew1230
-    version: v1
+    version: v2
   cloudCredentials: madhuaws117x
   config:
     addons:
@@ -48,7 +48,7 @@ spec:
 status:
   blueprint:
     name: madhunew1230
-    version: v1
+    version: v2
   conditions:
   - reason: registered
     status: "True"
