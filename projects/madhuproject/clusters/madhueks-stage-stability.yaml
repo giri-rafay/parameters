@@ -5,8 +5,8 @@ metadata:
   project: madhuproject
 spec:
   blueprintConfig:
-    name: madhuaddon-calico1
-    version: cost
+    name: madhunew1230
+    version: v1
   cloudCredentials: madhuaws117x
   config:
     addons:
@@ -47,8 +47,8 @@ spec:
   type: aws-eks
 status:
   blueprint:
-    name: madhuaddon-calico1
-    version: cost
+    name: madhunew1230
+    version: v1
   conditions:
   - reason: registered
     status: "True"
