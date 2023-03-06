@@ -5,8 +5,7 @@ metadata:
   project: madhuproject
 spec:
   blueprintConfig:
-    name: madhuaddon-calico1
-    version: v1123x-latest2
+    name: default
   cloudCredentials: madhuaws117x
   config:
     addons:
@@ -47,8 +46,7 @@ spec:
   type: aws-eks
 status:
   blueprint:
-    name: madhuaddon-calico1
-    version: v1123x-latest2
+    name: default
   conditions:
   - reason: registered
     status: "True"
@@ -62,8 +60,8 @@ status:
   - reason: blueprint placement processed
     status: "False"
     type: ClusterBlueprintSyncSucceeded
-  - reason: blueprint handled
-    status: "False"
+  - reason: all namespaces synced
+    status: "True"
     type: ClusterNamespaceSyncSucceeded
   - reason: blueprint synced
     status: "True"
