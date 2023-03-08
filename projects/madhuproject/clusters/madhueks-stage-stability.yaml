@@ -7,8 +7,8 @@ metadata:
   project: madhuproject
 spec:
   blueprintConfig:
-    name: bp-addon-cluster-override
-    version: last-v2
+    name: ram-bp-fleet
+    version: v2-ram1
   cloudCredentials: madhuaws117x
   config:
     addons:
@@ -49,8 +49,8 @@ spec:
   type: aws-eks
 status:
   blueprint:
-    name: bp-addon-cluster-override
-    version: last-v2
+    name: ram-bp-fleet
+    version: v2-ram1
   conditions:
   - reason: registered
     status: "True"
@@ -64,8 +64,8 @@ status:
   - reason: all namespaces synced
     status: "True"
     type: ClusterNamespaceSyncSucceeded
-  - reason: all tasks/workloads synced
-    status: "True"
+  - reason: blueprint placement created by fleet
+    status: "False"
     type: ClusterBlueprintSyncSucceeded
   - reason: blueprint synced
     status: "True"
