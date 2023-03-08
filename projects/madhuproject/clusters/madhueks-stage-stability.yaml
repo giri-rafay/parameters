@@ -5,7 +5,8 @@ metadata:
   project: madhuproject
 spec:
   blueprintConfig:
-    name: minimal
+    name: bp-addon-cluster-override
+    version: last-v2
   cloudCredentials: madhuaws117x
   config:
     addons:
@@ -46,7 +47,8 @@ spec:
   type: aws-eks
 status:
   blueprint:
-    name: minimal
+    name: bp-addon-cluster-override
+    version: last-v2
   conditions:
   - reason: registered
     status: "True"
@@ -57,12 +59,12 @@ status:
   - reason: all nodes synced
     status: "True"
     type: ClusterNodeSyncSucceeded
-  - reason: all namespaces synced
-    status: "True"
-    type: ClusterNamespaceSyncSucceeded
-  - reason: all tasks/workloads synced
-    status: "True"
+  - reason: blueprint placement created
+    status: "False"
     type: ClusterBlueprintSyncSucceeded
+  - reason: blueprint handled
+    status: "False"
+    type: ClusterNamespaceSyncSucceeded
   - reason: blueprint synced
     status: "True"
     type: ClusterReady
