@@ -5,8 +5,7 @@ metadata:
   project: madhuproject
 spec:
   blueprintConfig:
-    name: ram-bp-fleet
-    version: v2-ram1
+    name: minimal
   cloudCredentials: madhuaws117x
   config:
     addons:
@@ -47,8 +46,7 @@ spec:
   type: aws-eks
 status:
   blueprint:
-    name: ram-bp-fleet
-    version: v2-ram1
+    name: minimal
   conditions:
   - reason: registered
     status: "True"
