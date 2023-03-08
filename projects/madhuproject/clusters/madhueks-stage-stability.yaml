@@ -1,6 +1,8 @@
 apiVersion: infra.k8smgmt.io/v3
 kind: Cluster
 metadata:
+  labels:
+    k8smgmt.io/fleet: ram
   name: madhueks-stage-stability
   project: madhuproject
 spec:
@@ -59,12 +61,12 @@ status:
   - reason: all nodes synced
     status: "True"
     type: ClusterNodeSyncSucceeded
-  - reason: blueprint placement processed
-    status: "False"
-    type: ClusterBlueprintSyncSucceeded
-  - reason: blueprint handled
-    status: "False"
+  - reason: all namespaces synced
+    status: "True"
     type: ClusterNamespaceSyncSucceeded
+  - reason: all tasks/workloads synced
+    status: "True"
+    type: ClusterBlueprintSyncSucceeded
   - reason: blueprint synced
     status: "True"
     type: ClusterReady
