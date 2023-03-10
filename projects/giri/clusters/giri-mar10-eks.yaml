@@ -30,7 +30,7 @@ spec:
           imageBuilder: true
       instanceType: t3.xlarge
       maxSize: 2
-      minSize: 2
+      minSize: 0
       name: ng-35af9978
       version: "1.24"
       volumeSize: 80
