@@ -1,0 +1,89 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Cluster
+metadata:
+  name: rakshith-eks-test-idp-2
+  project: madhuproject
+spec:
+  blueprintConfig:
+    name: minimal
+  cloudCredentials: azure-ap
+  config:
+    kind: aksClusterConfig
+    metadata:
+      name: rakshith-eks-test-idp-2
+    spec:
+      managedCluster:
+        apiVersion: "2022-07-01"
+        identity:
+          type: SystemAssigned
+        location: centralindia
+        properties:
+          apiServerAccessProfile:
+            enablePrivateCluster: true
+          dnsPrefix: rakshith-eks-test-idp-2-dns
+          kubernetesVersion: 1.25.5
+          networkProfile:
+            loadBalancerSku: standard
+            networkPlugin: kubenet
+        sku:
+          name: Basic
+          tier: Free
+        tags:
+          email: rakshith@rafay.co
+          env: qa
+        type: Microsoft.ContainerService/managedClusters
+      nodePools:
+      - apiVersion: "2022-07-01"
+        location: centralindia
+        name: primary
+        properties:
+          count: 1
+          enableAutoScaling: true
+          maxCount: 1
+          maxPods: 40
+          minCount: 1
+          mode: System
+          orchestratorVersion: 1.25.5
+          osType: Linux
+          type: VirtualMachineScaleSets
+          vmSize: Standard_B2ms
+        type: Microsoft.ContainerService/managedClusters/agentPools
+      resourceGroupName: rakshith-demo-aks
+  proxyConfig: {}
+  type: aks
+status:
+  aks:
+    nodepools:
+    - createdAt: "2023-03-29T08:34:28Z"
+      id: w2loyn2
+      kubeVersion: 1.25.5
+      name: primary
+      provisionStatus: NODEGROUP_PROVISION_COMPLETE
+  blueprint:
+    name: minimal
+  conditions:
+  - reason: registered
+    status: "True"
+    type: ClusterRegisterSucceeded
+  - reason: checked in
+    status: "True"
+    type: ClusterCheckInSucceeded
+  - reason: pending
+    status: "False"
+    type: ClusterNodeSyncSucceeded
+  - reason: all namespaces synced
+    status: "True"
+    type: ClusterNamespaceSyncSucceeded
+  - reason: all tasks/workloads synced
+    status: "True"
+    type: ClusterBlueprintSyncSucceeded
+  - reason: blueprint synced
+    status: "True"
+    type: ClusterReady
+  createdAt: "2023-03-29T08:33:34Z"
+  displayName: rakshith-eks-test-idp-2
+  extra:
+    vaultIntegration: {}
+  id: k5dj8wm
+  name: rakshith-eks-test-idp-2
+  provisionStatus: CLUSTER_PROVISION_COMPLETE
