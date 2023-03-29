@@ -1,17 +1,16 @@
 apiVersion: infra.k8smgmt.io/v3
 kind: Cluster
 metadata:
-  name: rakshith-eks-test-idp-2
+  name: madhuaks-stage1
   project: madhuproject
 spec:
   blueprintConfig:
-    name: bp-1
-    version: v2
-  cloudCredentials: azure-ap
+    name: default-aks
+  cloudCredentials: test-azure-provisioning
   config:
     kind: aksClusterConfig
     metadata:
-      name: rakshith-eks-test-idp-2
+      name: madhuaks-stage1
     spec:
       managedCluster:
         apiVersion: "2022-07-01"
@@ -19,19 +18,15 @@ spec:
           type: SystemAssigned
         location: centralindia
         properties:
-          apiServerAccessProfile:
-            enablePrivateCluster: true
-          dnsPrefix: rakshith-eks-test-idp-2-dns
-          kubernetesVersion: 1.25.5
+          apiServerAccessProfile: {}
+          dnsPrefix: madhuaks-stage1-dns
+          kubernetesVersion: 1.24.9
           networkProfile:
             loadBalancerSku: standard
             networkPlugin: kubenet
         sku:
           name: Basic
           tier: Free
-        tags:
-          email: rakshith@rafay.co
-          env: qa
         type: Microsoft.ContainerService/managedClusters
       nodePools:
       - apiVersion: "2022-07-01"
@@ -44,25 +39,24 @@ spec:
           maxPods: 40
           minCount: 1
           mode: System
-          orchestratorVersion: 1.25.5
+          orchestratorVersion: 1.24.9
           osType: Linux
           type: VirtualMachineScaleSets
-          vmSize: Standard_B2ms
+          vmSize: Standard_DS2_v2
         type: Microsoft.ContainerService/managedClusters/agentPools
-      resourceGroupName: rakshith-demo-aks
+      resourceGroupName: madhurgroup
   proxyConfig: {}
   type: aks
 status:
   aks:
     nodepools:
-    - createdAt: "2023-03-29T08:34:28Z"
-      id: w2loyn2
-      kubeVersion: 1.25.5
+    - createdAt: "2023-03-29T12:59:17Z"
+      id: 1kyzdg2
+      kubeVersion: 1.24.9
       name: primary
       provisionStatus: NODEGROUP_PROVISION_COMPLETE
   blueprint:
-    name: bp-1
-    version: v2
+    name: default-aks
   conditions:
   - reason: registered
     status: "True"
@@ -70,8 +64,8 @@ status:
   - reason: checked in
     status: "True"
     type: ClusterCheckInSucceeded
-  - reason: all nodes synced
-    status: "True"
+  - reason: pending
+    status: "False"
     type: ClusterNodeSyncSucceeded
   - reason: all namespaces synced
     status: "True"
@@ -82,10 +76,10 @@ status:
   - reason: blueprint synced
     status: "True"
     type: ClusterReady
-  createdAt: "2023-03-29T08:33:34Z"
-  displayName: rakshith-eks-test-idp-2
+  createdAt: "2023-03-29T12:58:36Z"
+  displayName: madhuaks-stage1
   extra:
     vaultIntegration: {}
-  id: k5dj8wm
-  name: rakshith-eks-test-idp-2
+  id: kgj4njk
+  name: madhuaks-stage1
   provisionStatus: CLUSTER_PROVISION_COMPLETE
