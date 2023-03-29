@@ -5,7 +5,7 @@ metadata:
   project: madhuproject
 spec:
   blueprintConfig:
-    name: default-aks
+    name: default
   cloudCredentials: test-azure-provisioning
   config:
     kind: aksClusterConfig
@@ -56,7 +56,7 @@ status:
       name: primary
       provisionStatus: NODEGROUP_PROVISION_COMPLETE
   blueprint:
-    name: default-aks
+    name: default
   conditions:
   - reason: registered
     status: "True"
@@ -64,15 +64,15 @@ status:
   - reason: checked in
     status: "True"
     type: ClusterCheckInSucceeded
-  - reason: pending
-    status: "False"
+  - reason: all nodes synced
+    status: "True"
     type: ClusterNodeSyncSucceeded
-  - reason: all namespaces synced
-    status: "True"
-    type: ClusterNamespaceSyncSucceeded
-  - reason: all tasks/workloads synced
-    status: "True"
+  - reason: blueprint placement processed
+    status: "False"
     type: ClusterBlueprintSyncSucceeded
+  - reason: blueprint handled
+    status: "False"
+    type: ClusterNamespaceSyncSucceeded
   - reason: blueprint synced
     status: "True"
     type: ClusterReady
