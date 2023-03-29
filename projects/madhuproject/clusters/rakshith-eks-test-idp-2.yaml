@@ -5,7 +5,8 @@ metadata:
   project: madhuproject
 spec:
   blueprintConfig:
-    name: default
+    name: bp-1
+    version: v2
   cloudCredentials: azure-ap
   config:
     kind: aksClusterConfig
@@ -60,7 +61,8 @@ status:
       name: primary
       provisionStatus: NODEGROUP_PROVISION_COMPLETE
   blueprint:
-    name: default
+    name: bp-1
+    version: v2
   conditions:
   - reason: registered
     status: "True"
