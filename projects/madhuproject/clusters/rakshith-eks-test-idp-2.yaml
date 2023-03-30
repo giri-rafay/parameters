@@ -1,8 +1,6 @@
 apiVersion: infra.k8smgmt.io/v3
 kind: Cluster
 metadata:
-  labels:
-    k1: v1
   name: rakshith-eks-test-idp-2
   project: madhuproject
 spec:
