@@ -1,16 +1,16 @@
 apiVersion: infra.k8smgmt.io/v3
 kind: Cluster
 metadata:
-  name: rakshith-eks-test-idp-2
-  project: madhuproject
+  name: giri-az-stage
+  project: giri
 spec:
   blueprintConfig:
-    name: default-aks
-  cloudCredentials: azure-ap
+    name: minimal
+  cloudCredentials: giri-azure-cost
   config:
     kind: aksClusterConfig
     metadata:
-      name: rakshith-eks-test-idp-2
+      name: giri-az-stage
     spec:
       managedCluster:
         apiVersion: "2022-07-01"
@@ -18,69 +18,46 @@ spec:
           type: SystemAssigned
         location: centralindia
         properties:
-          apiServerAccessProfile:
-            enablePrivateCluster: true
-          dnsPrefix: rakshith-eks-test-idp-2-dns
-          kubernetesVersion: 1.25.5
+          apiServerAccessProfile: {}
+          dnsPrefix: giri-az-stage-dns
+          kubernetesVersion: 1.24.9
           networkProfile:
             loadBalancerSku: standard
             networkPlugin: kubenet
+            networkPolicy: calico
         sku:
           name: Basic
           tier: Free
-        tags:
-          email: rakshith@rafay.co
-          env: qa
         type: Microsoft.ContainerService/managedClusters
       nodePools:
       - apiVersion: "2022-07-01"
         location: centralindia
-        name: sec
-        properties:
-          count: 1
-          enableAutoScaling: true
-          maxCount: 1
-          maxPods: 40
-          minCount: 1
-          mode: System
-          orchestratorVersion: 1.25.5
-          osType: Linux
-          type: VirtualMachineScaleSets
-          vmSize: Standard_B2ms
-        type: Microsoft.ContainerService/managedClusters/agentPools
-      - apiVersion: "2022-07-01"
-        location: centralindia
         name: primary
         properties:
-          count: 1
+          count: 2
           enableAutoScaling: true
-          maxCount: 1
+          maxCount: 2
           maxPods: 40
-          minCount: 1
+          minCount: 2
           mode: System
-          orchestratorVersion: 1.25.5
+          orchestratorVersion: 1.24.9
           osType: Linux
           type: VirtualMachineScaleSets
           vmSize: Standard_B2ms
         type: Microsoft.ContainerService/managedClusters/agentPools
-      resourceGroupName: rakshith-demo-aks
+      resourceGroupName: giri
   proxyConfig: {}
   type: aks
 status:
   aks:
     nodepools:
-    - createdAt: "2023-03-30T05:56:13Z"
-      id: g2963e2
-      kubeVersion: 1.25.5
-      name: sec
-      provisionStatus: NODEGROUP_PROVISION_COMPLETE
-    - createdAt: "2023-03-29T08:34:28Z"
-      id: w2loyn2
-      kubeVersion: 1.25.5
+    - createdAt: "2023-03-30T12:09:33Z"
+      id: emp9e02
+      kubeVersion: 1.24.9
       name: primary
       provisionStatus: NODEGROUP_PROVISION_COMPLETE
   blueprint:
-    name: default-aks
+    name: minimal
   conditions:
   - reason: registered
     status: "True"
@@ -100,10 +77,10 @@ status:
   - reason: blueprint synced
     status: "True"
     type: ClusterReady
-  createdAt: "2023-03-29T08:33:34Z"
-  displayName: rakshith-eks-test-idp-2
+  createdAt: "2023-03-30T12:08:54Z"
+  displayName: giri-az-stage
   extra:
     vaultIntegration: {}
-  id: k5dj8wm
-  name: rakshith-eks-test-idp-2
+  id: krdqqw2
+  name: giri-az-stage
   provisionStatus: CLUSTER_PROVISION_COMPLETE
