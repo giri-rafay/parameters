@@ -7,8 +7,8 @@ metadata:
   project: madhuproject
 spec:
   blueprintConfig:
-    name: bp-1
-    version: v2
+    name: bp-2
+    version: v1
   cloudCredentials: azure-ap
   config:
     kind: aksClusterConfig
@@ -38,6 +38,21 @@ spec:
       nodePools:
       - apiVersion: "2022-07-01"
         location: centralindia
+        name: sec
+        properties:
+          count: 1
+          enableAutoScaling: true
+          maxCount: 1
+          maxPods: 40
+          minCount: 1
+          mode: System
+          orchestratorVersion: 1.25.5
+          osType: Linux
+          type: VirtualMachineScaleSets
+          vmSize: Standard_B2ms
+        type: Microsoft.ContainerService/managedClusters/agentPools
+      - apiVersion: "2022-07-01"
+        location: centralindia
         name: primary
         properties:
           count: 1
@@ -59,16 +74,17 @@ status:
     nodepools:
     - createdAt: "2023-03-30T05:56:13Z"
       id: g2963e2
+      kubeVersion: 1.25.5
       name: sec
-      provisionStatus: NODEGROUP_CREATION_INPROGRESS
+      provisionStatus: NODEGROUP_PROVISION_COMPLETE
     - createdAt: "2023-03-29T08:34:28Z"
       id: w2loyn2
       kubeVersion: 1.25.5
       name: primary
       provisionStatus: NODEGROUP_PROVISION_COMPLETE
   blueprint:
-    name: bp-1
-    version: v2
+    name: bp-2
+    version: v1
   conditions:
   - reason: registered
     status: "True"
@@ -79,12 +95,14 @@ status:
   - reason: all nodes synced
     status: "True"
     type: ClusterNodeSyncSucceeded
-  - reason: all namespaces synced
-    status: "True"
-    type: ClusterNamespaceSyncSucceeded
-  - reason: all tasks/workloads synced
-    status: "True"
+  - reason: 'FailedPrecondition: unable to handle blueprint workloads: unable to get
+      blueprint workloads: rpc error: code = Unknown desc = unsupported primary CNI
+      kubenet for deployment of Cilium for network policy service in AKS'
+    status: "False"
     type: ClusterBlueprintSyncSucceeded
+  - reason: blueprint handled
+    status: "False"
+    type: ClusterNamespaceSyncSucceeded
   - reason: blueprint synced
     status: "True"
     type: ClusterReady
