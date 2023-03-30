@@ -1,6 +1,8 @@
 apiVersion: infra.k8smgmt.io/v3
 kind: Cluster
 metadata:
+  labels:
+    k1: v1
   name: rakshith-eks-test-idp-2
   project: madhuproject
 spec:
@@ -55,6 +57,10 @@ spec:
 status:
   aks:
     nodepools:
+    - createdAt: "2023-03-30T05:56:13Z"
+      id: g2963e2
+      name: sec
+      provisionStatus: NODEGROUP_CREATION_INPROGRESS
     - createdAt: "2023-03-29T08:34:28Z"
       id: w2loyn2
       kubeVersion: 1.25.5
@@ -73,12 +79,12 @@ status:
   - reason: all nodes synced
     status: "True"
     type: ClusterNodeSyncSucceeded
-  - reason: blueprint placement processed
-    status: "False"
-    type: ClusterBlueprintSyncSucceeded
-  - reason: blueprint handled
-    status: "False"
+  - reason: all namespaces synced
+    status: "True"
     type: ClusterNamespaceSyncSucceeded
+  - reason: all tasks/workloads synced
+    status: "True"
+    type: ClusterBlueprintSyncSucceeded
   - reason: blueprint synced
     status: "True"
     type: ClusterReady
