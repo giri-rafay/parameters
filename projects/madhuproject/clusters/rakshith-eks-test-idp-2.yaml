@@ -5,7 +5,7 @@ metadata:
   project: madhuproject
 spec:
   blueprintConfig:
-    name: rctl-bp-1
+    name: default-aks
   cloudCredentials: azure-ap
   config:
     kind: aksClusterConfig
@@ -80,7 +80,7 @@ status:
       name: primary
       provisionStatus: NODEGROUP_PROVISION_COMPLETE
   blueprint:
-    name: rctl-bp-1
+    name: default-aks
   conditions:
   - reason: registered
     status: "True"
@@ -91,12 +91,12 @@ status:
   - reason: all nodes synced
     status: "True"
     type: ClusterNodeSyncSucceeded
-  - reason: blueprint placement processed
-    status: "False"
-    type: ClusterBlueprintSyncSucceeded
-  - reason: blueprint handled
-    status: "False"
+  - reason: all namespaces synced
+    status: "True"
     type: ClusterNamespaceSyncSucceeded
+  - reason: all tasks/workloads synced
+    status: "True"
+    type: ClusterBlueprintSyncSucceeded
   - reason: blueprint synced
     status: "True"
     type: ClusterReady
