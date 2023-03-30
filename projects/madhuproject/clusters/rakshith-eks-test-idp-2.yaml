@@ -7,8 +7,8 @@ metadata:
   project: madhuproject
 spec:
   blueprintConfig:
-    name: bp-2
-    version: v1
+    name: bp-1
+    version: v2
   cloudCredentials: azure-ap
   config:
     kind: aksClusterConfig
@@ -83,8 +83,8 @@ status:
       name: primary
       provisionStatus: NODEGROUP_PROVISION_COMPLETE
   blueprint:
-    name: bp-2
-    version: v1
+    name: bp-1
+    version: v2
   conditions:
   - reason: registered
     status: "True"
@@ -95,14 +95,12 @@ status:
   - reason: all nodes synced
     status: "True"
     type: ClusterNodeSyncSucceeded
-  - reason: 'FailedPrecondition: unable to handle blueprint workloads: unable to get
-      blueprint workloads: rpc error: code = Unknown desc = unsupported primary CNI
-      kubenet for deployment of Cilium for network policy service in AKS'
-    status: "False"
-    type: ClusterBlueprintSyncSucceeded
-  - reason: blueprint handled
-    status: "False"
+  - reason: all namespaces synced
+    status: "True"
     type: ClusterNamespaceSyncSucceeded
+  - reason: all tasks/workloads synced
+    status: "True"
+    type: ClusterBlueprintSyncSucceeded
   - reason: blueprint synced
     status: "True"
     type: ClusterReady
