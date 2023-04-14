@@ -5,7 +5,7 @@ metadata:
   project: giri
 spec:
   blueprintConfig:
-    name: minimal
+    name: default-aks
   cloudCredentials: giri-aks
   config:
     kind: aksClusterConfig
@@ -56,10 +56,11 @@ status:
     nodepools:
     - createdAt: "2023-04-14T03:26:21Z"
       id: jkewd4k
+      kubeVersion: 1.25.6
       name: primary
       provisionStatus: NODEGROUP_PROVISION_COMPLETE
   blueprint:
-    name: minimal
+    name: default-aks
   conditions:
   - reason: registered
     status: "True"
@@ -67,11 +68,11 @@ status:
   - reason: checked in
     status: "True"
     type: ClusterCheckInSucceeded
-  - reason: pending
-    status: "False"
-    type: ClusterNodeSyncSucceeded
-  - reason: all tasks/workloads synced
+  - reason: all nodes synced
     status: "True"
+    type: ClusterNodeSyncSucceeded
+  - reason: blueprint placement processed
+    status: "False"
     type: ClusterBlueprintSyncSucceeded
   - reason: blueprint handled
     status: "False"
@@ -85,4 +86,4 @@ status:
     vaultIntegration: {}
   id: kexyjg2
   name: giri-aks-stg
-  provisionStatus: OPERATOR_BOOTSTRAP_INPROGRESS
+  provisionStatus: BOOTSTRAP_DELETION_INPROGRESS
