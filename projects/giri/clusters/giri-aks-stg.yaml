@@ -5,7 +5,8 @@ metadata:
   project: giri
 spec:
   blueprintConfig:
-    name: default-aks
+    name: apr-all-svcs
+    version: v1
   cloudCredentials: giri-aks
   config:
     kind: aksClusterConfig
@@ -60,7 +61,8 @@ status:
       name: primary
       provisionStatus: NODEGROUP_PROVISION_COMPLETE
   blueprint:
-    name: default-aks
+    name: apr-all-svcs
+    version: v1
   conditions:
   - reason: registered
     status: "True"
@@ -74,8 +76,8 @@ status:
   - reason: blueprint placement processed
     status: "False"
     type: ClusterBlueprintSyncSucceeded
-  - reason: blueprint handled
-    status: "False"
+  - reason: all namespaces synced
+    status: "True"
     type: ClusterNamespaceSyncSucceeded
   - reason: blueprint synced
     status: "True"
