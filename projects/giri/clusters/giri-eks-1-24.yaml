@@ -1,0 +1,73 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Cluster
+metadata:
+  name: giri-eks-1-24
+  project: giri
+spec:
+  blueprintConfig:
+    name: default
+    version: Latest
+  cloudCredentials: giri-aws
+  config:
+    managedNodeGroups:
+    - amiFamily: AmazonLinux2
+      desiredCapacity: 2
+      iam:
+        withAddonPolicies:
+          autoScaler: true
+      instanceType: t3.xlarge
+      maxSize: 2
+      minSize: 2
+      name: ng-c6d66068
+      version: "1.24"
+      volumeSize: 80
+      volumeType: gp3
+    metadata:
+      name: giri-eks-1-24
+      region: us-west-2
+      tags:
+        email: giridharaprasad@rafay.co
+        env: qa
+      version: "1.24"
+    network:
+      cni:
+        name: aws-cni
+    vpc:
+      cidr: 192.168.0.0/16
+      clusterEndpoints:
+        privateAccess: false
+        publicAccess: true
+      nat:
+        gateway: Single
+  proxyConfig: {}
+  type: aws-eks
+status:
+  blueprint:
+    name: default
+    version: Latest
+  conditions:
+  - reason: registered
+    status: "True"
+    type: ClusterRegisterSucceeded
+  - reason: checked in
+    status: "True"
+    type: ClusterCheckInSucceeded
+  - reason: all nodes synced
+    status: "True"
+    type: ClusterNodeSyncSucceeded
+  - reason: all namespaces synced
+    status: "True"
+    type: ClusterNamespaceSyncSucceeded
+  - reason: all tasks/workloads synced
+    status: "True"
+    type: ClusterBlueprintSyncSucceeded
+  - reason: blueprint synced
+    status: "True"
+    type: ClusterReady
+  createdAt: "2023-04-17T06:07:14Z"
+  displayName: giri-eks-1-24
+  extra:
+    vaultIntegration: {}
+  id: 2w5gq42
+  name: giri-eks-1-24
+  provisionStatus: BOOTSTRAP_DELETION_INPROGRESS
